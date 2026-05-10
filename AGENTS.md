@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-FabriconFeedback is a public static feedback page for Fabricon products. The site is intentionally simple: `index.html` is the deployed page and `README.md` describes the repo. There is no build system, package manager, backend, or generated source.
+FabriconFeedback is a public static feedback page and GitHub Issues queue for Fabricon products. The site is intentionally simple: `index.html` is the deployed page, `.github/ISSUE_TEMPLATE/` contains public issue templates, `.github/workflows/` contains the issue bridge, and `README.md` describes the repo. There is no build system, package manager, backend, or generated source.
 
 ## Development Commands
 

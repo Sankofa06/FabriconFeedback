@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a crash, broken flow, incorrect state, or visual issue.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Tell us what you saw and what you expected instead.
+      placeholder: The game did...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the shortest path that triggers the problem.
+      placeholder: |
+        1. Open...
+        2. Tap...
+        3. See...
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: e.g. 1.0.3
+    validations:
+      required: false
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS
+      placeholder: e.g. iPhone 17 Pro, iOS 26.4.1
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Extra context
+      description: Screenshots, save context, or anything else that helps.
+    validations:
+      required: false
