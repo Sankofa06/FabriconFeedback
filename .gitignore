@@ -1,0 +1,10 @@
+.DS_Store
+*.icloud
+*.swp
+*.swo
+*~
+.env
+.env.*
+node_modules/
+dist/
+build/
