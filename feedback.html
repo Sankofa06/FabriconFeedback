@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback - Fabricon Aerospace</title>
+  <meta name="description" content="Browse and submit feature requests, balance feedback, and bug reports for Fabricon Aerospace." />
+  <meta name="feedback-submit-endpoint" content="https://fabricon-feedback-submit.michael-d-williams13.workers.dev/submit-feedback" />
+  <meta property="og:title" content="Fabricon Aerospace Feedback" />
+  <meta property="og:description" content="Browse and submit feature requests, balance feedback, and bug reports for Fabricon Aerospace." />
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Fabricon Aerospace home">
+      <span class="brand-mark">FA</span>
+      <span>Fabricon Aerospace</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="feedback.html" class="active">Feedback</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero-feedback">
+      <div class="hero-copy">
+        <p class="eyebrow">Feedback board</p>
+        <h1>Report a bug, balance issue, or feature idea.</h1>
+        <p>
+          Submissions create a public GitHub issue through a Cloudflare relay.
+          You do not need a GitHub account or token.
+        </p>
+        <div class="hero-actions">
+          <button id="submit-btn" class="btn primary">+ Submit Feedback</button>
+          <a class="btn ghost" href="https://github.com/sankofa06/FabriconFeedback/issues" target="_blank" rel="noopener">Open GitHub</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <p class="panel-kicker">Status</p>
+        <span id="summary-state" class="hero-panel-note">Waiting for issues...</span>
+        <div class="summary-grid" aria-label="Feedback summary">
+          <div><strong id="open-count">0</strong><span>Open</span></div>
+          <div><strong id="closed-count">0</strong><span>Closed</span></div>
+          <div><strong id="visible-count">0</strong><span>Visible</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="toolbar surface">
+      <div>
+        <h2>Browse Feedback</h2>
+        <p id="results-copy">Loading the latest feedback from GitHub...</p>
+      </div>
+      <div class="toolbar-controls">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search feedback, keywords, or issue text..."
+          aria-label="Search feedback"
+        />
+        <select id="sort-select" aria-label="Sort feedback">
+          <option value="top">Top</option>
+          <option value="newest">Newest</option>
+          <option value="comments">Most discussed</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="surface filters" aria-label="Feedback filters">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="open">Open</button>
+      <button class="filter-chip" data-filter="closed">Closed</button>
+      <button class="filter-chip" data-filter="bug">Bug</button>
+      <button class="filter-chip" data-filter="enhancement">Feature</button>
+      <button class="filter-chip" data-filter="balance">Balance</button>
+    </section>
+
+    <section class="surface issue-surface">
+      <div id="banner" role="status" aria-live="polite"></div>
+      <ul id="issue-list" aria-live="polite"></ul>
+    </section>
+
+    <dialog id="feedback-modal">
+      <form id="feedback-form" method="dialog">
+        <div class="modal-head">
+          <h2 id="modal-title">Submit Feedback</h2>
+          <button type="button" id="modal-close" class="icon-btn" aria-label="Close">×</button>
+        </div>
+        <label>
+          Type
+          <select id="issue-type">
+            <option value="bug">Bug Report</option>
+            <option value="feature">Feature Request</option>
+            <option value="improvement">Improvement</option>
+          </select>
+        </label>
+        <label>
+          Title
+          <input type="text" id="issue-title" required maxlength="200" placeholder="Brief description..." />
+        </label>
+        <label>
+          Details
+          <textarea id="issue-body" rows="5" placeholder="Steps to reproduce, expected result, balance concern, or feature details..."></textarea>
+        </label>
+        <label class="feedback-honeypot" aria-hidden="true">
+          Website
+          <input type="text" id="feedback-website" tabindex="-1" autocomplete="off" />
+        </label>
+        <p id="modal-error" role="alert"></p>
+        <div class="modal-actions">
+          <button type="button" id="modal-cancel" class="btn ghost">Cancel</button>
+          <button type="submit" id="modal-submit" class="btn primary">Submit</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+
+  <footer>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a id="repo-link" href="#" target="_blank" rel="noopener">GitHub Repo</a>
+    </p>
+    <p>© Fabricon Aerospace</p>
+  </footer>
+  <script src="assets/feedback.js" defer></script>
+</body>
+</html>

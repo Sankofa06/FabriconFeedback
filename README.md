@@ -11,11 +11,17 @@ the app tracker.
 
 | File | Purpose | Deployed URL |
 |---|---|---|
-| `index.html` | Public static page | `https://sankofa06.github.io/FabriconFeedback/` |
+| `index.html` | Public support landing page | `https://sankofa06.github.io/FabriconFeedback/` |
+| `feedback.html` | Feedback board and submission form | `https://sankofa06.github.io/FabriconFeedback/feedback.html` |
+| `privacy.html` | Privacy policy | `https://sankofa06.github.io/FabriconFeedback/privacy.html` |
 
 ## Structure
 
-- `index.html` — deployed static page.
+- `index.html` — deployed support landing page.
+- `feedback.html` — public GitHub Issues browser and no-account submission form.
+- `privacy.html` — privacy policy for the game and feedback flow.
+- `assets/` — shared site styles, icon, and feedback board JavaScript.
+- `worker/` — Cloudflare Worker relay for no-account issue creation.
 - `.github/ISSUE_TEMPLATE/` — public bug and feature request templates.
 - `.github/workflows/` — issue bridge workflows.
 - `ISSUE_BRIDGE_NEXT_STEPS.md` — one-time GitHub setup checklist.
@@ -46,9 +52,27 @@ This public repo can copy feedback into `Sankofa06/AeroTycoonGame` through
 
 See `ISSUE_BRIDGE_NEXT_STEPS.md` for the full setup checklist.
 
+## Feedback Relay
+
+The feedback board reads public issues directly from GitHub. Creating issues
+goes through the Cloudflare Worker in `worker/`, which keeps the GitHub write
+token out of the app and browser.
+
+```sh
+cd worker
+wrangler secret put GITHUB_TOKEN
+wrangler deploy
+```
+
+Use a fine-grained GitHub token with Issues read/write access to
+`Sankofa06/FabriconFeedback`. The configured app/site endpoint is:
+
+`https://fabricon-feedback-submit.michael-d-williams13.workers.dev/submit-feedback`
+
 ## Local Preview
 
-Open `index.html` directly, or serve the repo root:
+Open `index.html`, `feedback.html`, or `privacy.html` directly, or serve the
+repo root:
 
 ```sh
 python3 -m http.server 8000
