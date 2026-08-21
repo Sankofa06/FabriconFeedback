@@ -35,6 +35,7 @@
     issueBody: document.getElementById("issue-body"),
     honeypot: document.getElementById("feedback-website"),
     modalCancel: document.getElementById("modal-cancel"),
+    modalClose: document.getElementById("modal-close"),
     modalSubmitBtn: document.getElementById("modal-submit"),
     modalError: document.getElementById("modal-error"),
     summaryVisible: document.getElementById("summary-visible"),
@@ -55,6 +56,7 @@
 
   els.submit.addEventListener("click", openSubmitModal);
   els.modalCancel.addEventListener("click", closeModal);
+  els.modalClose.addEventListener("click", closeModal);
   els.modal.addEventListener("click", (e) => { if (e.target === els.modal) closeModal(); });
   els.form.addEventListener("submit", handleSubmit);
 

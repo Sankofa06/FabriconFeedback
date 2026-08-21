@@ -19,7 +19,9 @@
     <nav aria-label="Primary">
       <a href="index.html" class="active">Home</a>
       <a href="feedback.html">Feedback</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/Sankofa06/FabriconFeedback">Source</a>
     </nav>
   </header>
 
@@ -34,7 +36,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="feedback.html">Open Feedback</a>
-          <a class="btn ghost" href="privacy.html">Privacy Policy</a>
+          <a class="btn ghost" href="https://sankofa06.github.io/AeroTycoonGame/">View AeroTycoon</a>
         </div>
         <div class="pill-row" aria-label="Feedback categories">
           <span class="pill">Bug reports</span>
@@ -46,9 +48,9 @@
       <div class="hero-panel" aria-label="Feedback workflow summary">
         <p class="panel-kicker">How it works</p>
         <ol class="steps">
-          <li>Submit feedback from the game or this site.</li>
-          <li>A Cloudflare Worker creates a public GitHub issue.</li>
-          <li>Public issues can be mirrored into the private game tracker.</li>
+          <li>Browse public reports here or open the queue on GitHub.</li>
+          <li>The account-free relay can create public issues once restored.</li>
+          <li>The tracker bridge can mirror selected reports once configured.</li>
         </ol>
       </div>
     </section>
@@ -60,8 +62,8 @@
       </div>
       <div class="feature-grid">
         <article class="feature-card">
-          <h3>No account required</h3>
-          <p>Submissions go through a Cloudflare Worker, so player devices and browsers never receive GitHub write credentials.</p>
+          <h3>Account-free relay design</h3>
+          <p>The Worker source keeps GitHub write credentials away from player devices and browsers; service restoration remains on the roadmap below.</p>
         </article>
         <article class="feature-card">
           <h3>Public by default</h3>
@@ -74,10 +76,87 @@
       </div>
     </section>
 
+    <section class="section roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="roadmap-heading">
+        <div>
+          <p class="eyebrow">Repository status</p>
+          <h2 id="roadmap-title">The public support shell is built. Its service loop still needs proof.</h2>
+        </div>
+        <p>
+          FabriconFeedback is the public sidecar for the private aviation game:
+          a support site, privacy record, issue queue, and relay/bridge codebase.
+          This view separates what exists in the repository from what still
+          depends on external service configuration.
+        </p>
+      </div>
+
+      <div class="roadmap-grid">
+        <article class="roadmap-card roadmap-card--built">
+          <p class="roadmap-state"><span aria-hidden="true"></span>Built</p>
+          <h3>Public support foundation</h3>
+          <ul>
+            <li>Responsive support, feedback, and privacy pages.</li>
+            <li>A GitHub-backed board with search, state, label, and sort controls.</li>
+            <li>A tested Worker implementation for validated, rate-limited issue creation.</li>
+            <li>Public/private issue-bridge workflows and issue templates in source.</li>
+          </ul>
+        </article>
+
+        <article class="roadmap-card roadmap-card--degraded">
+          <p class="roadmap-state"><span aria-hidden="true"></span>Degraded</p>
+          <h3>Account-free submission is not yet proven</h3>
+          <p>
+            The public site and issue browsing remain available, but the
+            no-account submission relay is not currently reachable. Use GitHub
+            Issues directly until the relay is restored and smoke-tested. The
+            private tracker bridge should also be treated as planned setup, not
+            a live promise.
+          </p>
+          <a href="https://github.com/Sankofa06/FabriconFeedback/issues">Open issues on GitHub <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="roadmap-card roadmap-card--next">
+          <p class="roadmap-state"><span aria-hidden="true"></span>Next</p>
+          <h3>Complete the feedback loop</h3>
+          <ol>
+            <li>Deploy and health-check the no-account submission relay.</li>
+            <li>Configure the issue bridge and create its required labels.</li>
+            <li>Smoke-test one public-to-private and one private-to-public handoff.</li>
+            <li>Add product screenshots so the support site reflects the game it serves.</li>
+          </ol>
+        </article>
+
+        <article class="roadmap-card roadmap-card--later">
+          <p class="roadmap-state"><span aria-hidden="true"></span>Later</p>
+          <h3>Turn feedback into visible progress</h3>
+          <p>
+            Once intake and mirroring are proven, publish player-safe milestones,
+            known issues, and balance themes here without exposing private tracker
+            details or save data.
+          </p>
+        </article>
+      </div>
+
+      <div class="roadmap-links" aria-label="Related Fabricon repositories">
+        <div>
+          <span>Product parent</span>
+          <strong>AeroTycoonGame</strong>
+          <p>The private native aviation strategy game this support queue serves.</p>
+          <a href="https://sankofa06.github.io/AeroTycoonGame/">Visit product page <span aria-hidden="true">↗</span></a>
+        </div>
+        <div>
+          <span>This repository</span>
+          <strong>FabriconFeedback</strong>
+          <p>Public support site, feedback queue, relay source, and issue-bridge source.</p>
+          <a href="https://github.com/Sankofa06/FabriconFeedback">View source on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div>
         <p class="eyebrow">Ready</p>
-        <h2>Browse current reports or send a new one.</h2>
+        <h2>Browse current reports and follow the support roadmap.</h2>
       </div>
       <a class="btn primary" href="feedback.html">Go to Feedback</a>
     </section>
@@ -87,7 +166,8 @@
     <p>
       <a href="feedback.html">Feedback</a> ·
       <a href="privacy.html">Privacy</a> ·
-      <a href="https://github.com/sankofa06/FabriconFeedback" target="_blank" rel="noopener">GitHub Repo</a>
+      <a href="#roadmap">Roadmap</a> ·
+      <a href="https://github.com/Sankofa06/FabriconFeedback">View source on GitHub</a>
     </p>
     <p>© Fabricon Aerospace</p>
   </footer>

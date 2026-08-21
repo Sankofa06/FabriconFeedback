@@ -30,8 +30,12 @@
         <p class="eyebrow">Feedback board</p>
         <h1>Report a bug, balance issue, or feature idea.</h1>
         <p>
-          Submissions create a public GitHub issue through a Cloudflare relay.
-          You do not need a GitHub account or token.
+          Browse public GitHub issues here. The account-free submission relay is
+          undergoing revalidation; use GitHub directly if a relay attempt fails.
+        </p>
+        <p class="service-notice" role="note">
+          <strong>Service note:</strong> account-free submission is not currently
+          available. The public GitHub issue queue remains the reliable path.
         </p>
         <div class="hero-actions">
           <button id="submit-btn" class="btn primary">+ Submit Feedback</button>
@@ -42,9 +46,10 @@
         <p class="panel-kicker">Status</p>
         <span id="summary-state" class="hero-panel-note">Waiting for issues...</span>
         <div class="summary-grid" aria-label="Feedback summary">
-          <div><strong id="open-count">0</strong><span>Open</span></div>
-          <div><strong id="closed-count">0</strong><span>Closed</span></div>
-          <div><strong id="visible-count">0</strong><span>Visible</span></div>
+          <div><strong id="summary-open">0</strong><span>Open</span></div>
+          <div><strong id="summary-closed">0</strong><span>Closed</span></div>
+          <div><strong id="summary-visible">0</strong><span>Visible</span></div>
+          <div><strong id="summary-labels">0</strong><span>Labels</span></div>
         </div>
       </aside>
     </section>
@@ -66,25 +71,24 @@
           <option value="newest">Newest</option>
           <option value="comments">Most discussed</option>
         </select>
+        <select id="label-select" aria-label="Filter feedback by label">
+          <option value="">All labels</option>
+        </select>
+        <select id="state-select" aria-label="Filter feedback by state">
+          <option value="open">Open</option>
+          <option value="all">All</option>
+          <option value="closed">Closed</option>
+        </select>
       </div>
     </section>
 
-    <section class="surface filters" aria-label="Feedback filters">
-      <button class="filter-chip active" data-filter="all">All</button>
-      <button class="filter-chip" data-filter="open">Open</button>
-      <button class="filter-chip" data-filter="closed">Closed</button>
-      <button class="filter-chip" data-filter="bug">Bug</button>
-      <button class="filter-chip" data-filter="enhancement">Feature</button>
-      <button class="filter-chip" data-filter="balance">Balance</button>
-    </section>
-
     <section class="surface issue-surface">
-      <div id="banner" role="status" aria-live="polite"></div>
+      <div id="status-banner" role="status" aria-live="polite" hidden></div>
       <ul id="issue-list" aria-live="polite"></ul>
     </section>
 
-    <dialog id="feedback-modal">
-      <form id="feedback-form" method="dialog">
+    <dialog id="submit-modal">
+      <form id="submit-form">
         <div class="modal-head">
           <h2 id="modal-title">Submit Feedback</h2>
           <button type="button" id="modal-close" class="icon-btn" aria-label="Close">×</button>
